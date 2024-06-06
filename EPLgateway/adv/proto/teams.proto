@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package teams;
+
+service Teams {
+  rpc Create(TeamRequest) returns (TeamResponse);
+  rpc Show(TeamIDRequest) returns (TeamResponse);
+  rpc Update(TeamUpdateRequest) returns (TeamResponse);
+  rpc Delete(TeamIDRequest) returns (DeleteResponse);
+}
+
+message TeamRequest {
+  string name = 1;
+  string location = 2;
+  string stadium = 3;
+  string history = 4;
+}
+
+message TeamResponse {
+  string message = 1;
+  // Add more fields if needed
+}
+
+message TeamIDRequest {
+  int32 id = 1;
+}
+
+message TeamUpdateRequest {
+  int32 id = 1;
+  string name = 2;
+  string location = 3;
+  string stadium = 4;
+  string history = 5;
+}
+
+message DeleteResponse {
+  string message = 1;
+}
